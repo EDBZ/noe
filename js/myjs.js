@@ -76,7 +76,8 @@ var nextSession = [];
 var fxtime = [];
 
 for (var i = 0; i < time.length; i++) {
-  fxtime.push(time[i].dateTime);
+  fxtime[fxtime.length]=time[i].dateTime;
+  // fxtime.push(time[i].dateTime);
 };
 
 console.log(fxtime);
