@@ -48,10 +48,10 @@ $('.moins').on('click', function() {
 
 
 moment.locale('fr');
-var time = document.getElementsByClassName('sessionTime');
-var sessions = document.getElementsByClassName('session');
-var rooms = document.getElementsByClassName('room');
-var languages = document.getElementsByClassName('language');
+var time = document.querySelectorAll('.sessionTime');
+var sessions = document.querySelectorAll('.session');
+var rooms = document.querySelectorAll('.room');
+var languages = document.querySelectorAll('.language');
 var nextSession = [];
 var fxtime=[];
 
@@ -60,18 +60,18 @@ for (var i = 0; i < time.length; i++) {
 }
 console.log(fxtime);
 
-function ObjSession(date, hour, room, lang, full) {
+function ObjSession(date, hour, room, langue, full) {
   this.date = date;
   this.hour = hour;
   this.room = room;
-  this.lang = lang;
+  this.langue = langue;
   this.full = full;
-};
+}
 
 function Mimy(date, heure) {
   this.date = date;
   this.heure = heure;
-};
+}
 
 function setime(xdate) {
   var dd = xdate.substr(0, 2);
@@ -90,14 +90,14 @@ function setime(xdate) {
     datemimy: datemimy,
     heuremimy: heuremimy,
     fulldate: fulldate
-  };
+  }
 
-};
+}
 
 
 function fdate() {
-  var jmy = document.getElementsByClassName('jmimy');
-  var hmy = document.getElementsByClassName('hmimy');
+  var jmy = document.querySelectorAll('.jmimy');
+  var hmy = document.querySelectorAll('.hmimy');
   var fmimy = [];
   var dateSessions = [];
   for (var i = 0; i < time.length; i++) {
@@ -105,8 +105,8 @@ function fdate() {
     dateSessions.push(setime(fxtime[i]).formatmimy);
     jmy[i].innerHTML = fmimy[i].date;
     hmy[i].innerHTML = fmimy[i].heure;
-  };
-};
+  }
+}
 
 function tabsession() {
   nextSession = [];
@@ -115,26 +115,30 @@ function tabsession() {
     sess[i] = new ObjSession(setime(fxtime[i]).datemimy, setime(fxtime[i]).heuremimy, rooms[i].innerHTML, languages[i].innerHTML, setime(fxtime[i]).fulldate);
     if (moment().isSameOrBefore(moment(sess[i].full).format(), 'minute') && nextSession.length < 2) {
       nextSession.push(sess[i]);
-    };
-  };
-  return nextSession
-};
+    }
+  }
+  return nextSession;
+}
 
 
 function next(nxt) {
-  var nextdate = document.getElementsByClassName('nextdate');
-  var nexthour = document.getElementsByClassName('nexthour');
-  var nextroom = document.getElementsByClassName('nextroom');
-  var nextlanguage = document.getElementsByClassName('nextlanguage');
+  var nextdate = document.querySelectorAll('.nextdate');
+  var nexthour = document.querySelectorAll('.nexthour');
+  var nextroom = document.querySelectorAll('.nextroom');
+  var nextlanguage = document.querySelectorAll('.nextlanguage');
   for (var i = 0; i < nxt.length; i++) {
     nextdate[i].innerHTML = nxt[i].date;
     nexthour[i].innerHTML = nxt[i].hour;
     nextroom[i].innerHTML = nxt[i].room;
-    nextlanguage[i].innerHTML = nxt[i].lang;
-  };
-};
+    nextlanguage[i].innerHTML = nxt[i].langue;
+  }
+}
 
 fdate();
 document.getElementById('nxtsess').onmouseenter = function() {
   tabsession(),next(nextSession);
-};
+}
+// var nvSession = document.getElementById('nxtsess');
+// nvSession.addEventListener('hover',function(
+//     tabsession(),next(nextSession);
+// ),false);
