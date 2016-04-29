@@ -73,8 +73,8 @@ var sessions = document.querySelectorAll('.session');
 var rooms = document.querySelectorAll('.room');
 var languages = document.querySelectorAll('.language');
 var nextSession = [];
-var fxtime = [];
-
+var fxtime = new Array();
+console.log(time[0].dateTime);
 for (var i = 0; i < time.length; i++) {
   fxtime[fxtime.length]=time[i].dateTime;
   // fxtime.push(time[i].dateTime);
