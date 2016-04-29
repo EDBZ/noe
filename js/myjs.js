@@ -15,7 +15,7 @@ $(".mascot" || '#bubble')
   });
 
   // description==================================
-
+  $('.back').fadeOut(500);
     $(".description")
 
       .mouseenter(function() {
