@@ -79,7 +79,7 @@ for (var i = 0; i < time.length; i++) {
   fxtime[fxtime.length]=time[i].dateTime;
   // fxtime.push(time[i].dateTime);
 };
-
+console.log('plop');
 console.log(fxtime);
 console.log(moment());
 function ObjSession(dateuh, hour, room, langue, full) {
