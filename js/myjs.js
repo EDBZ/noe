@@ -76,7 +76,7 @@ var nextSession = [];
 var fxtime = [];
 
 for (var i = 0; i < time.length; i++) {
-  fxtime.push(time[i].dateTime)
+  fxtime.push(time[i].datetime)
 }
 console.log(fxtime);
 console.log(moment());
