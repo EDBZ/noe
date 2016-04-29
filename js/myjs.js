@@ -81,50 +81,50 @@ for (var i = 0; i < time.length; i++) {
 }
 console.log(fxtime);
 
-function ObjSession(date, hour, room, langue, full) {
-  this.date = date;
+function ObjSession(dateuh, hour, room, langue, full) {
+  this.dateuh = dateuh;
   this.hour = hour;
   this.room = room;
   this.langue = langue;
   this.full = full;
 }
 
-function Mimy(date, heure) {
-  this.date = date;
+function Mimy(dateuh, heure) {
+  this.dateuh = dateuh;
   this.heure = heure;
 }
 
-function setime(xdate) {
-  var dd = xdate.substr(0, 2);
-  var mm = xdate.substr(3, 2);
-  var yy = xdate.substr(6, 4);
-  var hhstart = xdate.substr(11, 2);
-  var minstart = xdate.substr(14, 2);
-  var hhend = xdate.substr(17, 2);
-  var minend = xdate.substr(20, 2);
-  var datemimy = moment(dd, 'DD').format('D') + ' ' + moment(mm, 'MM').format('MMM');
+function setime(xdateuh) {
+  var dd = xdateuh.substr(0, 2);
+  var mm = xdateuh.substr(3, 2);
+  var yy = xdateuh.substr(6, 4);
+  var hhstart = xdateuh.substr(11, 2);
+  var minstart = xdateuh.substr(14, 2);
+  var hhend = xdateuh.substr(17, 2);
+  var minend = xdateuh.substr(20, 2);
+  var dateuhmimy = moment(dd, 'DD').format('D') + ' ' + moment(mm, 'MM').format('MMM');
   var heuremimy = minstart === '30' ? hhstart + 'h' + minstart + '-' + hhend + 'h' + minend : hhstart + 'h-' + hhend + 'h';
-  var formatmimy = datemimy + ' ' + heuremimy;
-  var fulldate = yy + '-' + mm + '-' + dd + 'T' + hhstart + ':' + minstart;
+  var formatmimy = dateuhmimy + ' ' + heuremimy;
+  var fulldateuh = yy + '-' + mm + '-' + dd + 'T' + hhstart + ':' + minstart;
   return {
     formatmimy: formatmimy,
-    datemimy: datemimy,
+    dateuhmimy: dateuhmimy,
     heuremimy: heuremimy,
-    fulldate: fulldate
+    fulldateuh: fulldateuh
   }
 
 }
 
 
-function fdate() {
+function fdateuh() {
   var jmy = document.querySelectorAll('.jmimy');
   var hmy = document.querySelectorAll('.hmimy');
   var fmimy = [];
-  var dateSessions = [];
+  var dateuhSessions = [];
   for (var i = 0; i < time.length; i++) {
-    fmimy[i] = new Mimy(setime(fxtime[i]).datemimy, setime(fxtime[i]).heuremimy);
-    dateSessions.push(setime(fxtime[i]).formatmimy);
-    jmy[i].innerHTML = fmimy[i].date;
+    fmimy[i] = new Mimy(setime(fxtime[i]).dateuhmimy, setime(fxtime[i]).heuremimy);
+    dateuhSessions.push(setime(fxtime[i]).formatmimy);
+    jmy[i].innerHTML = fmimy[i].dateuh;
     hmy[i].innerHTML = fmimy[i].heure;
   }
 }
@@ -133,7 +133,7 @@ function tabsession() {
   nextSession = [];
   var sess = [];
   for (var i = 0; i < time.length; i++) {
-    sess[i] = new ObjSession(setime(fxtime[i]).datemimy, setime(fxtime[i]).heuremimy, rooms[i].innerHTML, languages[i].innerHTML, setime(fxtime[i]).fulldate);
+    sess[i] = new ObjSession(setime(fxtime[i]).dateuhmimy, setime(fxtime[i]).heuremimy, rooms[i].innerHTML, languages[i].innerHTML, setime(fxtime[i]).fulldateuh);
     if (moment().isSameOrBefore(moment(sess[i].full).format(), 'minute') && nextSession.length < 2) {
       nextSession.push(sess[i]);
     }
@@ -143,19 +143,19 @@ function tabsession() {
 
 
 function next(nxt) {
-  var nextdate = document.querySelectorAll('.nextdate');
+  var nextdateuh = document.querySelectorAll('.nextdate');
   var nexthour = document.querySelectorAll('.nexthour');
   var nextroom = document.querySelectorAll('.nextroom');
   var nextlanguage = document.querySelectorAll('.nextlanguage');
   for (var i = 0; i < nxt.length; i++) {
-    nextdate[i].innerHTML = nxt[i].date;
+    nextdateuh[i].innerHTML = nxt[i].dateuh;
     nexthour[i].innerHTML = nxt[i].hour;
     nextroom[i].innerHTML = nxt[i].room;
     nextlanguage[i].innerHTML = nxt[i].langue;
   }
 }
 
-fdate();
+fdateuh();
 document.getElementById('nxtsess').onmouseenter = function() {
   tabsession(),next(nextSession);
 }
