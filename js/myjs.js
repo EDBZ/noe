@@ -74,10 +74,11 @@ var rooms = document.querySelectorAll('.room');
 var languages = document.querySelectorAll('.language');
 var nextSession = [];
 var fxtime = [];
-
+console.log(time);
 for (var i = 0; i < time.length; i++) {
   fxtime.push(time[i].datetime)
 }
+
 console.log(fxtime);
 console.log(moment());
 function ObjSession(dateuh, hour, room, langue, full) {
