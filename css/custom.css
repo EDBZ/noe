@@ -503,7 +503,7 @@ ol li {
           -ms-transform-origin: center top 0;
       transform-origin: center top 0;
 }
-.port-3.effect-3:hover .text-desc {
+/*.port-3.effect-3:hover .text-desc {
   -webkit-transform: none;
           -ms-transform: none;
       transform: none;
@@ -514,7 +514,7 @@ ol li {
   -webkit-transform: translateY(100%);
           -ms-transform: translateY(100%);
       transform: translateY(100%)
-}
+}*/
 
 /*
    video1/video2
