@@ -67,7 +67,6 @@ $('.moins').on('click', function() {
 // SESSION============================================
 // defilement====
 
-
 moment.locale('fr');
 var time = document.querySelectorAll('.sessionTime');
 var sessions = document.querySelectorAll('.session');
@@ -80,7 +79,7 @@ for (var i = 0; i < time.length; i++) {
   fxtime.push(time[i].dateTime)
 }
 console.log(fxtime);
-
+console.log(moment());
 function ObjSession(dateuh, hour, room, langue, full) {
   this.dateuh = dateuh;
   this.hour = hour;
@@ -112,7 +111,6 @@ function setime(xdateuh) {
     heuremimy: heuremimy,
     fulldateuh: fulldateuh
   }
-
 }
 
 
@@ -156,9 +154,6 @@ function next(nxt) {
 }
 
 fdateuh();
-// document.getElementById('nxtsess').onmouseenter = function() {
-//   tabsession(),next(nextSession);
-// }
 var nvSession = document.getElementById('nxtsess');
 nvSession.addEventListener('mouseover', function() {
   tabsession(), next(nextSession);
