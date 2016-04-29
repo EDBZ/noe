@@ -14,6 +14,27 @@ $(".mascot" || '#bubble')
     console.log('mouse leave !');
   });
 
+  // description==================================
+
+    $(".description")
+
+      .mouseenter(function() {
+
+        $('.front').fadeOut(500);
+
+        $('.back').fadeIn(500);
+
+      })
+
+      .mouseleave(function() {
+
+        $('.back').fadeOut(500);
+
+        $('.front').fadeIn(500);
+
+      });
+
+
 //modal =============================================================
 $('body').on('hidden.bs.modal', '.modal', function () {
 $('#video1').trigger('pause');
