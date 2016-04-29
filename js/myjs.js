@@ -14,33 +14,33 @@ $(".mascot" || '#bubble')
     console.log('mouse leave !');
   });
 
-  // description==================================
+// description==================================
+$('.back').fadeOut(500);
+$(".description")
+
+.mouseenter(function() {
+
+  $('.front').fadeOut(500);
+
+  $('.back').fadeIn(500);
+
+})
+
+.mouseleave(function() {
+
   $('.back').fadeOut(500);
-    $(".description")
 
-      .mouseenter(function() {
+  $('.front').fadeIn(500);
 
-        $('.front').fadeOut(500);
-
-        $('.back').fadeIn(500);
-
-      })
-
-      .mouseleave(function() {
-
-        $('.back').fadeOut(500);
-
-        $('.front').fadeIn(500);
-
-      });
+});
 
 
 //modal =============================================================
-$('body').on('hidden.bs.modal', '.modal', function () {
-$('#video1').trigger('pause');
-$('#video2').trigger('pause');
-$('#video3').trigger('pause');
-$('#video4').trigger('pause');
+$('body').on('hidden.bs.modal', '.modal', function() {
+  $('#video1').trigger('pause');
+  $('#video2').trigger('pause');
+  $('#video3').trigger('pause');
+  $('#video4').trigger('pause');
 });
 //footer ============================================================
 var comptFoot = 0;
@@ -74,7 +74,7 @@ var sessions = document.querySelectorAll('.session');
 var rooms = document.querySelectorAll('.room');
 var languages = document.querySelectorAll('.language');
 var nextSession = [];
-var fxtime=[];
+var fxtime = [];
 
 for (var i = 0; i < time.length; i++) {
   fxtime.push(time[i].dateTime)
@@ -156,10 +156,10 @@ function next(nxt) {
 }
 
 fdateuh();
-document.getElementById('nxtsess').onmouseenter = function() {
-  tabsession(),next(nextSession);
-}
-// var nvSession = document.getElementById('nxtsess');
-// nvSession.addEventListener('hover',function(
-//     tabsession(),next(nextSession);
-// ),false);
+// document.getElementById('nxtsess').onmouseenter = function() {
+//   tabsession(),next(nextSession);
+// }
+var nvSession = document.getElementById('nxtsess');
+nvSession.addEventListener('hover', function(
+  tabsession(), next(nextSession);
+), false);
