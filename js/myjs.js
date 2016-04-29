@@ -160,6 +160,6 @@ fdateuh();
 //   tabsession(),next(nextSession);
 // }
 var nvSession = document.getElementById('nxtsess');
-nvSession.addEventListener('hover', function() {
+nvSession.addEventListener('mouseover', function() {
   tabsession(), next(nextSession);
 }, false);
