@@ -73,15 +73,12 @@ var sessions = document.querySelectorAll('.session');
 var rooms = document.querySelectorAll('.room');
 var languages = document.querySelectorAll('.language');
 var nextSession = [];
-var fxtime = new Array();
-console.log(time[0].dateTime);
+var fxtime = [];
+console.log(time[0].getAttributeNode('dateTime').value)
 for (var i = 0; i < time.length; i++) {
-  fxtime[fxtime.length]=time[i].dateTime;
-  // fxtime.push(time[i].dateTime);
+  fxtime[fxtime.length]=time[i].getAttributeNode('dateTime').value;
 };
-console.log('plop');
 console.log(fxtime);
-console.log(moment());
 function ObjSession(dateuh, hour, room, langue, full) {
   this.dateuh = dateuh;
   this.hour = hour;

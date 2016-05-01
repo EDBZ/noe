@@ -462,7 +462,7 @@ ol li {
 }
 .nextdate, .nexthour {
   font-size: 3vw;
-  margin: 0;
+  margin: 0.5vw;
 }
 .nextlanguage {
   margin-top: 5px;
@@ -504,18 +504,16 @@ ol li {
    ========================================================================== */
 
 
-/*.port-3.effect-3:hover .text-desc {
+.port-3.effect-3:hover .text-desc {
   -webkit-transform: none;
-          -ms-transform: none;
       transform: none;
   opacity: 1;
   filter: alpha(opacity=100);
 }
 .port-3.effect-3:hover #defilant {
   -webkit-transform: translateY(100%);
-          -ms-transform: translateY(100%);
       transform: translateY(100%)
-}*/
+}
 
 /*
    video1/video2
@@ -556,6 +554,7 @@ ol li {
   display: block;
   position: relative;
   border-radius:10px;
+  overflow: hidden;
 }
 .view h2 {
   color: #fff;
@@ -573,11 +572,6 @@ ol li {
   text-align: center;
   line-height: 0.8vh; /*A voir*/
 }
-/*.view .play {
-  display: inline-block;
-  text-decoration: none;
-  width: 2vw;
-}*/
 .view a.info: hover {
   box-shadow: 0 0 5px #000;
 }
@@ -670,7 +664,7 @@ ol li {
   z-index: 10000;
   position: fixed;
   bottom: -145px;
-  left: 150px;
+  left: 170px;
   -webkit-transition: all .3s linear;
   transition: all .3s linear;
   -webkit-animation-delay: 2s;
@@ -696,6 +690,7 @@ ol li {
 }
 #bubble {
   /* ... */
+  padding:10px;
   /* propriété CSS3 (fonctionne sous Opera) */
   border-top-right-radius: 80px 40px;
   border-top-left-radius: 80px 40px;
